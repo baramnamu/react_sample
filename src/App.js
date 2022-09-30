@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import style from './App.module.css';
+import CommonButton from './component/CommonButton';
 
 function App() {
   const [value, setValue] = useState('');
@@ -30,7 +31,7 @@ function App() {
       <form onSubmit={onSubmit}>
         <label htmlFor="inputTask">Input Your Task: </label>
         <input id="inputTask" placeholder="input your tasks" value={value} onChange={onInputChange} />
-        <button>Submit</button>
+        <CommonButton text="Submit" />
       </form>
       <ul>
         {todos.map((t, i) => (
