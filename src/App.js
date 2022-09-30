@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import style from './App.module.css';
-import StaticCommonButton from './component/CommonButton';
+import styles from './App.module.css';
+import StaticButton from './component/Button';
 
 function App() {
   const [value, setValue] = useState('');
@@ -27,18 +27,18 @@ function App() {
   }, [todos]);
 
   return (
-    <div className={style.Centering}>
+    <div className={styles.Centering}>
       <form onSubmit={onSubmit}>
         <label htmlFor="inputTask">Input Your Task: </label>
         <input id="inputTask" placeholder="input your tasks" value={value} onChange={onInputChange} />
-        <StaticCommonButton text="Submit" disabled={value.length < 4} />
+        <StaticButton text="Submit" disabled={value.length < 4} />
       </form>
       <ul>
         {todos.map((t, i) => (
           <li key={i}>{t}</li>
         ))}
       </ul>
-      <StaticCommonButton text="Reset" onClick={() => setTodos([])} />
+      <StaticButton text="Reset" fontSize={10} onClick={() => setTodos([])} />
     </div>
   );
 }
