@@ -1,6 +1,7 @@
 import { memo } from 'react';
+import PropTypes from 'prop-types';
 
-function CommonButton({ text, disabled = false, onClick }) {
+function Button({ text, fontSize = 12, disabled = false, onClick }) {
   console.info(`${text} button was rendered`);
   return (
     <button
@@ -10,6 +11,7 @@ function CommonButton({ text, disabled = false, onClick }) {
         padding: '10px 20px',
         border: 0,
         borderRadius: 10,
+        fontSize,
       }}
       disabled={disabled}
       onClick={onClick}
@@ -18,7 +20,13 @@ function CommonButton({ text, disabled = false, onClick }) {
     </button>
   );
 }
+Button.propTypes = {
+  text: PropTypes.string.isRequired,
+  fontSize: PropTypes.number,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+};
 
 /* React.memo() 메소드는 부모 컴포넌트의 state 중에서 자신과 상관없는 state가 변경되면 다시 렌더링하지 않도록 해준다. */
-const StaticCommonButton = memo(CommonButton);
-export default StaticCommonButton;
+const StaticButton = memo(Button);
+export default StaticButton;

@@ -1,46 +1,10 @@
-import { useEffect, useState } from 'react';
-import style from './App.module.css';
-import StaticCommonButton from './component/CommonButton';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Todo from './routes/Todo';
 
-function App() {
-  const [value, setValue] = useState('');
-  const [todos, setTodos] = useState([]);
+const router = createBrowserRouter([{ path: '/', element: <Todo /> }]);
 
-  const onInputChange = (event) => {
-    setValue(event.target.value);
-  };
-  const onSubmit = (event) => {
-    event.preventDefault();
-    if (value.trim() === '') return;
-    setTodos((presentTodos) => [...presentTodos, value]);
-    setValue('');
-  };
-
-  useEffect(() => {
-    console.log('call an API');
-    return () => {
-      console.log('destroying this component');
-    };
-  }, []);
-  useEffect(() => {
-    console.log('todos =', todos);
-  }, [todos]);
-
-  return (
-    <div className={style.Centering}>
-      <form onSubmit={onSubmit}>
-        <label htmlFor="inputTask">Input Your Task: </label>
-        <input id="inputTask" placeholder="input your tasks" value={value} onChange={onInputChange} />
-        <StaticCommonButton text="Submit" disabled={value.length < 4} />
-      </form>
-      <ul>
-        {todos.map((t, i) => (
-          <li key={i}>{t}</li>
-        ))}
-      </ul>
-      <StaticCommonButton text="Reset" onClick={() => setTodos([])} />
-    </div>
-  );
-}
+const App = function () {
+  return <RouterProvider router={router} />;
+};
 
 export default App;
