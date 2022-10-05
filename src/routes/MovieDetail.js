@@ -3,20 +3,18 @@ import { useParams } from 'react-router-dom';
 import styles from './MovieDetail.module.css';
 
 export default function MovieDetail() {
-  const params = useParams('movieId');
+  const { movieId } = useParams();
   const [loading, setLoading] = useState(true);
   const [movieDetailData, setMovieDetailData] = useState({});
 
   useEffect(() => {
     (async () => {
-      const jsonResponse = await (
-        await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${params.movieId}`)
-      ).json();
+      const jsonResponse = await (await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${movieId}`)).json();
       // console.log(jsonResponse);
       setMovieDetailData(jsonResponse.data.movie);
       setLoading(false);
     })();
-  }, [params]);
+  }, [movieId]);
 
   return loading ? (
     <h2>Loading...</h2>
