@@ -7,6 +7,7 @@ import Todo from './routes/Todo';
 import Coin from './routes/Coin';
 import Movie from './routes/Movie';
 import reportWebVitals from './reportWebVitals';
+import MovieDetail from './routes/MovieDetail';
 
 const router = createBrowserRouter([
   {
@@ -18,16 +19,20 @@ const router = createBrowserRouter([
         element: <Todo />,
       },
       {
-        path: '/todo',
+        path: 'todo',
         element: <Todo />,
       },
       {
-        path: '/coin',
+        path: 'coin',
         element: <Coin />,
       },
       {
-        path: '/movie',
+        path: 'movie',
         element: <Movie />,
+      },
+      {
+        path: 'movie/:movieId',
+        element: <MovieDetail />,
       },
     ],
   },
