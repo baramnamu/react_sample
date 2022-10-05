@@ -1,4 +1,3 @@
-import { symbol } from 'prop-types';
 import { useEffect, useState } from 'react';
 
 const Coin = () => {
@@ -12,8 +11,8 @@ const Coin = () => {
     setCoins(jsonCoins);
     setLoading(false);
   };
-  const onChangeCoin = (index) => {
-    // console.log(event);
+  const onChangeCoin = function (index) {
+    console.log('onChangeCoin...');
     const c = coins[index];
     if (c) setCoin({ symbol: c.symbol, price: c.quotes.USD.price, amount: dollar / c.quotes.USD.price });
   };
@@ -36,15 +35,18 @@ const Coin = () => {
     getCoins();
   }, []);
   useEffect(() => {
-    onChangeCoin(0);
+    console.log('useEffect() { ...onChangeCoin(0)... }');
+    const c = coins[0];
+    if (c) setCoin({ symbol: c.symbol, price: c.quotes.USD.price, amount: 1 / c.quotes.USD.price });
+    setDollar(1);
   }, [coins]);
 
   return loading ? (
     <h2>Loading...</h2>
   ) : (
     <div>
-      <input value={dollar} type="number" placeholder="Input a number by dollar" onChange={onInputDollar} />$
-      =&gt;&nbsp;
+      <h2>The Coins! {loading ? '' : `(${coins.length})`}</h2>
+      <input value={dollar} type="number" placeholder="Input a number by dollar" onChange={onInputDollar} />$ =&gt;&nbsp;
       <input value={coin.amount} type="number" readOnly />
       <select onChange={(event) => onChangeCoin(event.target.value)}>
         {coins.map((c, i) => (

@@ -1,14 +1,17 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Todo from './routes/Todo';
-import Coin from './routes/Coin';
-
-const router = createBrowserRouter([
-  { path: '/', element: <Todo /> },
-  { path: '/coin', element: <Coin /> },
-]);
+import { Outlet } from 'react-router-dom';
+import Menu from './components/Menu';
 
 const App = function () {
-  return <RouterProvider router={router} />;
+  return (
+    <div style={{ display: 'flex' }}>
+      <div className="left_menu_container">
+        <Menu />
+      </div>
+      <div className="contents_container">
+        <Outlet />
+      </div>
+    </div>
+  );
 };
 
 export default App;
