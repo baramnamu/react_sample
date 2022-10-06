@@ -41,7 +41,9 @@ const Coin = () => {
   }, [coins]);
 
   return loading ? (
-    <h2>Loading...</h2>
+    <div className="centering_container">
+      <h2>Loading...</h2>
+    </div>
   ) : (
     <div>
       <h2>The Coins! {loading ? '' : `(${coins.length})`}</h2>
