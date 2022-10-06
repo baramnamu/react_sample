@@ -3,7 +3,7 @@ import Menu from './components/Menu';
 
 const App = function () {
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', width: '100%', height: 'auto' }}>
       <div className="left_menu_container">
         <Menu />
       </div>

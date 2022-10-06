@@ -12,7 +12,7 @@ const Coin = () => {
     setLoading(false);
   };
   const onChangeCoin = function (index) {
-    console.log('onChangeCoin...');
+    // console.log('onChangeCoin...');
     const c = coins[index];
     if (c) setCoin({ symbol: c.symbol, price: c.quotes.USD.price, amount: dollar / c.quotes.USD.price });
   };
@@ -35,7 +35,6 @@ const Coin = () => {
     getCoins();
   }, []);
   useEffect(() => {
-    console.log('useEffect() { ...onChangeCoin(0)... }');
     const c = coins[0];
     if (c) setCoin({ symbol: c.symbol, price: c.quotes.USD.price, amount: 1 / c.quotes.USD.price });
     setDollar(1);
