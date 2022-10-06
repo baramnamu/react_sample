@@ -38,7 +38,7 @@ export default function MovieDetail() {
           <li>Year: {movieDetailData.year}</li>
           <li>IMDB Code: {movieDetailData.imdb_code}</li>
           <li>Rating: {movieDetailData.rating}</li>
-          <li>Run Time: {movieDetailData.runtime}</li>
+          <li>Run Time: {movieDetailData.runtime} min</li>
         </ul>
         <a href={movieDetailData.url} target={'_blank'} rel="noreferrer">
           Link page to get more detail info about this movie...

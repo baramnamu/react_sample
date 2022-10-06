@@ -1,9 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  height: 100%;
   margin: 10;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
     'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #eff3f7;
 }
 
 code {
@@ -23,4 +27,12 @@ code {
   height: auto;
   padding: 20px 20px;
   flex-grow: 1;
+}
+
+.centering_container {
+  width: 100%;
+  height: 94vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
