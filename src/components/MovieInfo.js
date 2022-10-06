@@ -7,7 +7,7 @@ export default function MovieInfo({ id, title, year, mediumCoverImg, summary, ge
   return (
     <div className={style.movie}>
       <img src={mediumCoverImg} alt={title} className={style.movie__img} />
-      <Link to={`/movie/${id}`}>
+      <Link to={`./${id}`}>
         <h3 className={style.movie__title}>{title}</h3>
       </Link>
       <h4 className={style.movie__year}>{year}</h4>
