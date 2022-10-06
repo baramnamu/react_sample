@@ -17,7 +17,9 @@ export default function MovieDetail() {
   }, [movieId]);
 
   return loading ? (
-    <h2>Loading...</h2>
+    <div className="centering_container">
+      <h2>Loading...</h2>
+    </div>
   ) : (
     <>
       <div
