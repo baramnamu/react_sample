@@ -12,7 +12,7 @@ const Coin = () => {
     setLoading(false);
   };
   const onChangeCoin = function (index) {
-    console.log('onChangeCoin...');
+    // console.log('onChangeCoin...');
     const c = coins[index];
     if (c) setCoin({ symbol: c.symbol, price: c.quotes.USD.price, amount: dollar / c.quotes.USD.price });
   };
@@ -45,8 +45,7 @@ const Coin = () => {
   ) : (
     <div>
       <h2>The Coins! {loading ? '' : `(${coins.length})`}</h2>
-      <input value={dollar} type="number" placeholder="Input a number by dollar" onChange={onInputDollar} />$
-      =&gt;&nbsp;
+      <input value={dollar} type="number" placeholder="Input a number by dollar" onChange={onInputDollar} />$ =&gt;&nbsp;
       <input value={coin.amount} type="number" readOnly />
       <select onChange={(event) => onChangeCoin(event.target.value)}>
         {coins.map((c, i) => (

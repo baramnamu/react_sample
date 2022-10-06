@@ -8,6 +8,7 @@ import Coin from './routes/Coin';
 import Movie from './routes/Movie';
 import reportWebVitals from './reportWebVitals';
 import MovieDetail from './routes/MovieDetail';
+import Home from './routes/Home';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Todo />,
+        element: <Home />,
       },
       {
         path: 'todo',
