@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Menu = () => {
   return (
-    <>
+    <div style={{ position: 'fixed' }}>
       <Link to={``}>
         <h3>Home</h3>
       </Link>
@@ -15,7 +15,7 @@ const Menu = () => {
       <Link to={`movie`}>
         <h3>Movie</h3>
       </Link>
-    </>
+    </div>
   );
 };
 
